@@ -1,0 +1,153 @@
+\documentclass[%
+ fontsize=10pt,%           Schriftgröße
+ paper=a4,%	      Papier
+ DIV=14,%           Seitengröße (siehe Koma Skript Dokumentation !)
+ BCOR=5mm,%        Zusäzlicher Rand auf der Innenseite
+ pagenumber=footcenter,%
+ parskip=half*,%
+ english,%		      Sprache
+%fromalign=,
+fromalign=location,
+firsthead=true,
+locfield=wide,
+foldmarks=true,
+foldmarks=BLMPT,
+%visualize
+ ]{scrlttr2}%     Klassen: scrartcl, scrreprt, scrbook, scrletter
+
+\KOMAoptions{%
+ fromalign=left,%
+ fromrule=afteraddress,%
+ fromphone=false,%
+ fromemail=false,%
+ fromurl=false,%
+% foldmarks=false,%
+ backaddress=true,%
+ addrfield=true,%
+ %footsepline=true,
+ %headsepline=true
+ enlargefirstpage=true
+}
+
+%% Schriften ===================================================================================
+%
+% -- Andere Schriftpakete -----
+%
+% - Times, Helvetica, Courier (Word Standard...)
+\usepackage{mathptmx}
+%\usepackage[scaled=.90]{helvet}
+%\usepackage{courier}
+% statt courier man kann auch die Standardschrift cmtt beibehalten
+% -------------------
+%
+% - Palantino , Helvetica, Courier
+%\usepackage{mathpazo}
+%\usepackage[scaled=.95]{helvet}
+%\usepackage{courier}
+% -------------------
+
+% Weitere Times Schriften
+%\usepackage{charter}
+%\usepackage[scaled=.92]{helvet}
+% -----------------------------
+
+
+% *** Sprache *****************************
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{lastpage}
+
+%------------------------------------------
+
+%% Seitenlayout ================================================================================
+%
+\addtokomafont{fromname}{\sffamily}
+\addtokomafont{fromaddress}{\sffamily}
+
+\LoadLetterOption{DIN}
+%\LoadLetterOption{nowindow}
+%\LoadLetterOption{dateup}
+\LoadLetterOption{footseperated}
+\LoadLetterOption{fromaddress}
+\usepackage{typearea}
+% -- Kopfzeilen ---
+\usepackage[automark, nouppercase]{scrpage2}
+\pagestyle{scrplain}
+\pagestyle{headings}
+%
+% ----------------------------------------------------------------------------------------------
+
+
+%% sonstige Pakete =============================================================================
+%\usepackage{enumerate}  % Optionen [a)], [i)] usw.
+%\usepackage{mdwlist}
+% ----------------------------------------------------------------------------------------------
+
+\usepackage{csquotes}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{eurosym}
+\usepackage{siunitx}
+\usepackage{lipsum}
+
+\DeclareSIUnit\byte{B}
+
+\usepackage{graphicx}
+\usepackage{textpos}
+\setlength{\TPHorizModule}{\paperwidth}\setlength{\TPVertModule}{\paperheight}
+
+\firsthead{\includegraphics[height=25.3mm]{Header_CCTB_clean.pdf}%
+\begin{textblock}{0.3}(0.3,-0.07){\centering\bfseries{}\usekomavar{frominstitute}\\[.5\baselineskip]\usekomavar{fromdepartment}\\}\end{textblock}%
+}
+
+\usepackage{pdfpages}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\begin{document}
+
+%%==============================================================================================
+\setkomavar{backaddress}{}
+
+\begin{letter}{Empfänger}
+\setkomavar{toname}{%%VORNAME%% %%NACHNAME%%}
+\setkomavar{toaddress}{%%EMAILADDRESS%%}%
+\setkomavar{place}{Würzburg}
+
+%\setkomavar{title}{}
+\setkomavar{subject}{Benutzerdaten für die Veranstaltung Grundlagen der Systemadministration}
+
+\setkomavar{signature}{Dr.\ Frank Förster}
+
+\opening{Werte Benutzer,}
+
+Es wurde ein neuer Benutzeraccount angelegt. Die Nutzerdaten dafür lauten folgendermaßen:
+
+\begin{tabular}{ll}
+Nutzername: & \texttt{%%USERNAME%%}\\
+Passwort: & \texttt{%%PASSWORD%%}\\
+\end{tabular}
+
+Diese Daten genutzt werden, um sich in den Account einzuloggen. Bitte ändern sie das Passwort baldmöglichst mit dem Befehl \verb#passwd#. 
+
+Halten sie das Passwort geheim, um Missbrauch dieses Accounts zu verhindern.
+
+Viel Spaß im Praktikum!
+
+\closing{Mit freundlichen Grüßen,}
+
+% Falls Anhänge gewünscht, dann hier auflisten
+%\encl{}
+
+\end{letter}
+%%==============================================================================================
+\end{document}
+
+
+

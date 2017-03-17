@@ -1,0 +1,63 @@
+\ProvidesFile{fromaddress.lco}%
+
+% set the length of the head of letter letter
+\@setplength{firstheadwidth}{176.2mm}
+\@setplength{firstheadvpos}{12mm}
+\@setplength{fromrulethickness}{0pt}
+\@setplength{locwidth}{80mm}
+
+\KOMAoptions{foldmarks=BLMP}
+
+% define the language dependent stuff
+\providecaptionname{english}{\universityname}{University of Würzburg}
+\providecaptionname{ngerman}{\universityname}{Universität Würzburg}
+\providecaptionname{german}{\universityname}{Universität Würzburg}
+
+\providecaptionname{english}{\institutname}{Center for Computational and Theoretical Biology}
+\providecaptionname{ngerman}{\institutname}{Center for Computational and Theoretical Biology}
+\providecaptionname{german}{\institutname}{Center for Computational and Theoretical Biology}
+
+\providecaptionname{english}{\departmentname}{Department of Bioinformatics}
+\providecaptionname{ngerman}{\departmentname}{Lehrstuhl für Bioinformatik}
+\providecaptionname{german}{\departmentname}{Lehrstuhl für Bioinformatik}
+
+\providecaptionname{english}{\fromaddresslocalized}{CCTB\\Campus North/Building~32\\97074 Würzburg\\Germany}
+\providecaptionname{ngerman}{\fromaddresslocalized}{CCTB\\Campus Nord/Gebäude~32\\97074 Würzburg\\Deutschland}
+\providecaptionname{german}{\fromaddresslocalized}{CCTB\\Campus Nord/Gebäude~32\\97074 Würzburg\\Deutschland}
+
+\providecaptionname{english}{\footerstatement}{The Center for Computational and Theroretical Biology (CCTB) is a Research Unit of  the Faculty of Biology at the Würzburg Biocenter.\\Board of directors: Prof.\ M.\ Engstler, Prof.\ Th.\ Dandekar and Prof.\ J.\ Schultz (COO)}
+\providecaptionname{ngerman}{\footerstatement}{Das Center for Computational and Theroretical Biology (CCTB) is eine Forschungseinheit der Fakultät für Biologie am Biozentrum Würzburg.\\Das Leitungsgemium setzt sich zusammen aus: Prof.\ M.\ Engstler, Prof.\ Th.\ Dandekar und Prof.\ J.\ Schultz (COO)}
+\providecaptionname{german}{\footerstatement}{Das Center for Computational and Theroretical Biology (CCTB) is eine Forschungseinheit der Fakultät für Biologie am Biozentrum Würzburg.\\Das Leitungsgemium setzt sich zusammen aus: Prof.\ M.\ Engstler, Prof.\ Th.\ Dandekar und Prof.\ J.\ Schultz (COO)}
+
+\newkomavar{cctbfooter}
+\setkomavar{cctbfooter}{\footerstatement}
+
+\newkomavar{fromtitle}
+\setkomavar{fromtitle}{Dr.}
+\newkomavar{fromuniversity}
+\setkomavar{fromuniversity}{\universityname}
+\newkomavar{frominstitute}
+\setkomavar{frominstitute}{\institutname}
+\newkomavar{fromdepartment}
+\setkomavar{fromdepartment}{\departmentname}
+\setkomavar{fromurl}{http://www.bioinfo.biozentrum.uni-wuerzburg.de/}
+\setkomavar{fromname}{Frank Förster}
+\setkomavar{fromaddress}{\fromaddresslocalized}
+\setkomavar{fromphone}{+49-(0)931-31\,84555}
+\setkomavar{fromfax}{+49-(0)931-31\,845550}
+\setkomavar{fromemail}{frank.foerster@uni-wuerzburg.de}
+
+\setkomavar{location}{\raggedleft\sffamily%
+\textbf{\small%
+\usekomavar{fromuniversity}\\
+\usekomavar{frominstitute}/\\
+\usekomavar{fromdepartment}\\[\baselineskip]
+\usekomavar{fromtitle} \usekomavar{fromname}}\\[0.25\baselineskip]
+\footnotesize%
+\usekomavar{fromaddress}\\
+\usekomavar*{phoneseparator}\usekomavar{phoneseparator}\usekomavar{fromphone}\\
+\usekomavar*{faxseparator}\usekomavar{faxseparator}\usekomavar{fromfax}\\
+\usekomavar{fromemail}\\[0.5\baselineskip]
+Seite \thepage\ von \pageref{LastPage}}
+
+\endinput

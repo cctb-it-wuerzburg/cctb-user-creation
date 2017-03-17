@@ -1,0 +1,21 @@
+\ProvidesFile{footseparated.lco}%
+\firstfoot{
+	\hrule
+	\tiny\rmfamily%
+	\centering\usekomavar{cctbfooter}\\
+	\parbox[t]{\linewidth}{\tiny%
+		\begin{tabular}[t]{l@{}}
+			\usekomavar{frominstitute}\\
+			\usekomavar{fromdepartment}\\
+			{\renewcommand*\\[1][]{, }%
+			\usekomavar{fromaddress}}
+		\end{tabular}
+		\hfill
+		\begin{tabular}[t]{r@{}}
+			\usekomavar{fromemail}\\
+			\usekomavar{fromurl}\\
+			\usekomavar*{phoneseparator}\usekomavar{phoneseparator}\usekomavar{fromphone}\hspace{2em}\usekomavar*{faxseparator}\usekomavar{faxseparator}\usekomavar{fromfax}\\
+		\end{tabular}
+	}
+}
+\endinput
