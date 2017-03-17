@@ -29,7 +29,9 @@ close(FH) || die "Unable to close template file '$template_file': $!";
 
 open(FH, ">", $account_out) || die "Unable to open account output file '$account_out' which might be specified via --accounts option : $!";
 
-while (<>)
+my $input=$ARGV[0];
+open(INPUT, "<", $input) || die "Unable to open file '$input': $!\n";
+while (<INPUT>)
 {
     chomp;
 
@@ -89,6 +91,10 @@ while (<>)
     printf FH '\adrentry{%s}{%s}{%s}{%s}{%s}{%s}{%s}{%s}', $nach, $vor, $email, $anrede, $endung, $username, $passwd, $account_for;
 }
 
+close(INPUT) || die "Unable to close file '$input': $!\n";
 close(FH) || die "Unable to close account output file '$account_out': $!";
 
-print "Run latex \n";
+my $texfile=$input;
+$texfile=~s/\.csv//;
+
+print "\n\n\nRun latex:\n\n\tpdflatex --jobname=$texfile accounts.tex\n\n\n";
